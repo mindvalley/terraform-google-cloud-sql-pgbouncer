@@ -45,6 +45,7 @@ resource "google_compute_instance" "pgbouncer" {
   metadata = {
     google-logging-enabled = var.disable_service_account ? null : true
     user-data              = module.pgbouncer_cloud_init.cloud_config
+    block-project-ssh-keys = true
   }
 
   boot_disk {
